@@ -482,7 +482,12 @@ nav.scrolled { box-shadow: var(--shadow-md); }
   transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
 }
 .tool-tile:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--orange-mid); }
-.tool-tile-icon { font-size: 26px; margin-bottom: 8px; }
+.tool-tile-icon { font-size: 26px; margin-bottom: 8px; 
+
+    display: flex;
+  align-items: center;    /* Vertical centering */
+  justify-content: center;
+}
 .tool-tile-name { font-size: 12px; font-weight: 500; color: var(--text-500); }
 
 /* ─── TESTIMONIALS ─── */
@@ -960,18 +965,15 @@ footer {
       <p class="section-sub">Train on the industry-leading platforms used by enterprises, governments, and innovators worldwide.</p>
     </div>
     <div class="tools-grid">
-      <a href="https://pepperlabs.my/" style="text-decoration: none;"><div class="tool-tile reveal reveal-delay-1" id="chatgpt-trigger"><div class="tool-tile-icon">🤖</div><div class="tool-tile-name">ChatGPT</div></div></a>
-      <div class="tool-tile reveal reveal-delay-1"><div class="tool-tile-icon">🧠</div><div class="tool-tile-name">Claude AI</div></div>
-      <div class="tool-tile reveal reveal-delay-2"><div class="tool-tile-icon">✨</div><div class="tool-tile-name">Gemini</div></div>
-      <div class="tool-tile reveal reveal-delay-2"><div class="tool-tile-icon">🔵</div><div class="tool-tile-name">MS Copilot</div></div>
-      <div class="tool-tile reveal reveal-delay-3"><div class="tool-tile-icon">📊</div><div class="tool-tile-name">Power BI</div></div>
-      <div class="tool-tile reveal reveal-delay-3"><div class="tool-tile-icon">🐍</div><div class="tool-tile-name">Python</div></div>
-      <div class="tool-tile reveal reveal-delay-1"><div class="tool-tile-icon">🔗</div><div class="tool-tile-name">LangChain</div></div>
-      <div class="tool-tile reveal reveal-delay-1"><div class="tool-tile-icon">🎨</div><div class="tool-tile-name">Midjourney</div></div>
-      <div class="tool-tile reveal reveal-delay-2"><div class="tool-tile-icon">🔄</div><div class="tool-tile-name">n8n / Make</div></div>
-      <div class="tool-tile reveal reveal-delay-2"><div class="tool-tile-icon">📝</div><div class="tool-tile-name">Notion AI</div></div>
-      <div class="tool-tile reveal reveal-delay-3"><div class="tool-tile-icon">☁️</div><div class="tool-tile-name">Azure AI</div></div>
-      <div class="tool-tile reveal reveal-delay-3"><div class="tool-tile-icon">🔬</div><div class="tool-tile-name">HuggingFace</div></div>
+      <a href="https://pepperlabs.my/" style="text-decoration: none;"><div class="tool-tile reveal reveal-delay-1" id="chatgpt-trigger"><div class="tool-tile-icon"><img src="https://1000logos.net/wp-content/uploads/2023/02/ChatGPT-Logo.png" alt="ChatGPT Icon" style="height: 50px;width: auto;display: block;"></div><div class="tool-tile-name">ChatGPT</div></div></a>
+      <a href="https://pepperlabs.my/" style="text-decoration: none;"><div class="tool-tile reveal reveal-delay-1"><div class="tool-tile-icon"><img src="https://images.seeklogo.com/logo-png/55/3/claude-logo-png_seeklogo-554534.png" alt="Claude AI Icon" style="height: 50px;width: auto;display: block"></div><div class="tool-tile-name">Claude AI</div></div></a>
+      <a href="https://pepperlabs.my/" style="text-decoration: none;"><div class="tool-tile reveal reveal-delay-2"><div class="tool-tile-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Google_Gemini_icon_2025.svg/3840px-Google_Gemini_icon_2025.svg.png" alt="Gemini Icon" style="height: 50px;width: auto;display: block"></div><div class="tool-tile-name">Gemini</div></div></a>
+      <a href="https://pepperlabs.my/" style="text-decoration: none;"><div class="tool-tile reveal reveal-delay-2"><div class="tool-tile-icon"><img src="https://1000logos.net/wp-content/uploads/2023/11/Copilot-Logo.png" alt="MS Copilot Icon" style="height: 50px;width: auto;display: block"></div><div class="tool-tile-name">MS Copilot</div></div></a>
+      <a href="https://pepperlabs.my/" style="text-decoration: none;"><div class="tool-tile reveal reveal-delay-3"><div class="tool-tile-icon"><img src="https://vectorseek.com/wp-content/uploads/2025/09/Google-flow-Logo-PNG-SVG-Vector-1.png" alt="Google Flow Icon" style="height: 50px;width: auto;display: block"></div><div class="tool-tile-name">Google Flow</div></div></a>
+      <a href="https://pepperlabs.my/" style="text-decoration: none;"><div class="tool-tile reveal reveal-delay-3"><div class="tool-tile-icon"><img src="https://raw.githubusercontent.com/lobehub/lobe-icons/refs/heads/master/packages/static-png/dark/perplexity-color.png" alt="Perplexity Icon" style="height: 50px;width: auto;display: block"></div><div class="tool-tile-name">Perplexity</div></div></a>
+      <a href="https://pepperlabs.my/" style="text-decoration: none;"><div class="tool-tile reveal reveal-delay-1"><div class="tool-tile-icon"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLcbdb2C8CwMN5W1l0o8JbhCd6ymBOhFcDhQ&s" alt="Fireflies Icon" style="height: 50px;width: auto;display: block"></div><div class="tool-tile-name">Fireflies</div></div></a>
+      <a href="https://pepperlabs.my/" style="text-decoration: none;"><div class="tool-tile reveal reveal-delay-1"><div class="tool-tile-icon"><img src="https://raw.githubusercontent.com/lobehub/lobe-icons/refs/heads/master/packages/static-png/light/manus.png" alt="Manus Icon" style="height: 50px;width: auto;display: block"></div><div class="tool-tile-name">Manus</div></div></a>
+      <a href="https://pepperlabs.my/" style="text-decoration: none;"><div class="tool-tile reveal reveal-delay-3"><div class="tool-tile-icon"><img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/notebooklm-icon.png" alt="NotebookLM Icon" style="height: 50px;width: auto;display: block"></div><div class="tool-tile-name">NotebookLM</div></div></a>
     </div>
   </div>
 </section>
