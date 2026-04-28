@@ -623,6 +623,43 @@ footer {
   display: flex; justify-content: space-between; align-items: center;
   font-size: 13px; color: var(--text-300); flex-wrap: wrap; gap: 12px;
 }
+
+/* ─── VIDEO MODAL ─── */
+.modal-overlay {
+  display: none;
+  position: fixed; inset: 0; z-index: 1000;
+  background: rgba(0,0,0,0.75);
+  backdrop-filter: blur(4px);
+  align-items: center; justify-content: center;
+}
+.modal-overlay.open { display: flex; }
+
+.modal-box {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  width: 90%; max-width: 800px;
+  position: relative;
+  box-shadow: var(--shadow-lg);
+}
+.modal-close {
+  position: absolute; top: 14px; right: 18px;
+  font-size: 22px; background: none; border: none;
+  cursor: pointer; color: var(--text-500);
+  line-height: 1; transition: color 0.2s;
+}
+.modal-close:hover { color: var(--text-900); }
+
+.modal-video-wrap {
+  position: relative; padding-bottom: 56.25%; /* 16:9 */
+  height: 0; overflow: hidden; border-radius: var(--radius-md);
+  background: #000;
+}
+.modal-video-wrap iframe {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; border: none;
+}
+
 </style>
 </head>
 <body>
@@ -910,6 +947,7 @@ footer {
         <div class="step-desc">Earn your credential and join a growing network of AI-ready professionals across Malaysia.</div>
       </div>
     </div>
+    <a href="#" id="howToEnrollBtn" class="btn-orange" style="margin-top:28px;display:inline-flex;margin-left: 42%;">How to Enroll →</a>
   </div>
 </section>
 
@@ -1067,8 +1105,44 @@ footer {
     <span>A-3-7, Viva Residency (Commercial), Off Jalan Ipoh, 51200 Kuala Lumpur, Malaysia</span>
   </div>
 </footer>
-
+<!-- VIDEO MODAL -->
+<div class="modal-overlay" id="enrollModal">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose">✕</button>
+    <div class="modal-video-wrap">
+      <!-- Paste your YouTube/Vimeo embed URL below -->
+      <iframe id="modalIframe"
+        src="https://youtu.be/hIpt4yM7auc"
+        allow="autoplay; encrypted-media"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+</div>
 <script>
+    // Video modal
+const modal = document.getElementById('enrollModal');
+const iframe = document.getElementById('modalIframe');
+const VIDEO_URL = 'https://www.youtube.com/embed/hIpt4yM7auc?autoplay=1';
+
+document.getElementById('howToEnrollBtn').addEventListener('click', e => {
+  e.preventDefault();
+  iframe.src = VIDEO_URL;
+  modal.classList.add('open');
+});
+
+document.getElementById('modalClose').addEventListener('click', () => {
+  modal.classList.remove('open');
+  iframe.src = ''; // stops video when closed
+});
+
+modal.addEventListener('click', e => {
+  if (e.target === modal) { // click outside box closes it
+    modal.classList.remove('open');
+    iframe.src = '';
+  }
+});
+
   // Scroll reveal
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
