@@ -533,11 +533,43 @@ nav.scrolled { box-shadow: var(--shadow-md); }
 .step-desc  { font-size: 13px; color: var(--text-500); line-height: 1.65; }
 
 /* ─── TOOLS ─── */
+.tools-filter {
+  display: flex;
+  gap: 8px;
+  margin-top: 32px;
+  margin-bottom: 0;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  font-size: 13px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  padding: 8px 20px;
+  border-radius: 50px;
+  border: 1.5px solid var(--border);
+  background: var(--white);
+  color: var(--text-500);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  letter-spacing: 0.01em;
+}
+.filter-btn:hover {
+  border-color: var(--orange);
+  color: var(--orange);
+}
+.filter-btn.active {
+  background: var(--orange);
+  border-color: var(--orange);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(245,131,31,0.3);
+}
+
 .tools-grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 16px;
-  margin-top: 48px;
+  margin-top: 24px;
 }
 @media (max-width: 900px) { .tools-grid { grid-template-columns: repeat(3, 1fr); } }
 @media (max-width: 500px) { .tools-grid { grid-template-columns: repeat(2, 1fr); } }
@@ -548,9 +580,12 @@ nav.scrolled { box-shadow: var(--shadow-md); }
   border-radius: var(--radius-md);
   padding: 20px 12px;
   text-align: center;
-  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s, opacity 0.3s;
 }
 .tool-tile:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--orange-mid); }
+.tool-tile.hidden {
+  display: none;
+}
 .tool-tile-icon { font-size: 26px; margin-bottom: 8px; 
     display: flex;
   align-items: center;
@@ -1075,16 +1110,26 @@ footer {
       <h2 class="section-title">AI Tools You'll <span class="gradient-text">Master</span></h2>
       <p class="section-sub">Train on the industry-leading platforms used by enterprises, governments, and innovators worldwide.</p>
     </div>
+
+    <!-- Filter Buttons -->
+    <div class="tools-filter reveal reveal-delay-1">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="llm">LLM</button>
+      <button class="filter-btn" data-filter="agentic">Agentic AI</button>
+    </div>
+
     <div class="tools-grid">
-      <a href="https://pepperlabs.my/" style="text-decoration: none;"><div class="tool-tile reveal reveal-delay-1" id="chatgpt-trigger"><div class="tool-tile-icon"><img src="https://1000logos.net/wp-content/uploads/2023/02/ChatGPT-Logo.png" alt="ChatGPT Icon" style="height: 50px;width: auto;display: block;"></div><div class="tool-tile-name">ChatGPT</div></div></a>
-      <a href="https://pepperlabs.my/" style="text-decoration: none;"><div class="tool-tile reveal reveal-delay-1"><div class="tool-tile-icon"><img src="https://images.seeklogo.com/logo-png/55/3/claude-logo-png_seeklogo-554534.png" alt="Claude AI Icon" style="height: 50px;width: auto;display: block"></div><div class="tool-tile-name">Claude AI</div></div></a>
-      <a href="https://pepperlabs.my/" style="text-decoration: none;"><div class="tool-tile reveal reveal-delay-2"><div class="tool-tile-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Google_Gemini_icon_2025.svg/3840px-Google_Gemini_icon_2025.svg.png" alt="Gemini Icon" style="height: 50px;width: auto;display: block"></div><div class="tool-tile-name">Gemini</div></div></a>
-      <a href="https://pepperlabs.my/" style="text-decoration: none;"><div class="tool-tile reveal reveal-delay-2"><div class="tool-tile-icon"><img src="https://1000logos.net/wp-content/uploads/2023/11/Copilot-Logo.png" alt="MS Copilot Icon" style="height: 50px;width: auto;display: block"></div><div class="tool-tile-name">MS Copilot</div></div></a>
-      <a href="https://pepperlabs.my/" style="text-decoration: none;"><div class="tool-tile reveal reveal-delay-3"><div class="tool-tile-icon"><img src="https://vectorseek.com/wp-content/uploads/2025/09/Google-flow-Logo-PNG-SVG-Vector-1.png" alt="Google Flow Icon" style="height: 50px;width: auto;display: block"></div><div class="tool-tile-name">Google Flow</div></div></a>
-      <a href="https://pepperlabs.my/" style="text-decoration: none;"><div class="tool-tile reveal reveal-delay-3"><div class="tool-tile-icon"><img src="https://raw.githubusercontent.com/lobehub/lobe-icons/refs/heads/master/packages/static-png/dark/perplexity-color.png" alt="Perplexity Icon" style="height: 50px;width: auto;display: block"></div><div class="tool-tile-name">Perplexity</div></div></a>
-      <a href="https://pepperlabs.my/" style="text-decoration: none;"><div class="tool-tile reveal reveal-delay-1"><div class="tool-tile-icon"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLcbdb2C8CwMN5W1l0o8JbhCd6ymBOhFcDhQ&s" alt="Fireflies Icon" style="height: 50px;width: auto;display: block"></div><div class="tool-tile-name">Fireflies</div></div></a>
-      <a href="https://pepperlabs.my/" style="text-decoration: none;"><div class="tool-tile reveal reveal-delay-1"><div class="tool-tile-icon"><img src="https://raw.githubusercontent.com/lobehub/lobe-icons/refs/heads/master/packages/static-png/light/manus.png" alt="Manus Icon" style="height: 50px;width: auto;display: block"></div><div class="tool-tile-name">Manus</div></div></a>
-      <a href="https://pepperlabs.my/" style="text-decoration: none;"><div class="tool-tile reveal reveal-delay-3"><div class="tool-tile-icon"><img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/notebooklm-icon.png" alt="NotebookLM Icon" style="height: 50px;width: auto;display: block"></div><div class="tool-tile-name">NotebookLM</div></div></a>
+      <!-- LLM -->
+      <a href="https://pepperlabs.my/" style="text-decoration: none;" data-category="llm"><div class="tool-tile reveal reveal-delay-1"><div class="tool-tile-icon"><img src="https://1000logos.net/wp-content/uploads/2023/02/ChatGPT-Logo.png" alt="ChatGPT Icon" style="height: 50px;width: auto;display: block;"></div><div class="tool-tile-name">ChatGPT</div></div></a>
+      <a href="https://pepperlabs.my/" style="text-decoration: none;" data-category="llm"><div class="tool-tile reveal reveal-delay-1"><div class="tool-tile-icon"><img src="https://images.seeklogo.com/logo-png/55/3/claude-logo-png_seeklogo-554534.png" alt="Claude AI Icon" style="height: 50px;width: auto;display: block"></div><div class="tool-tile-name">Claude AI</div></div></a>
+      <a href="https://pepperlabs.my/" style="text-decoration: none;" data-category="llm"><div class="tool-tile reveal reveal-delay-2"><div class="tool-tile-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Google_Gemini_icon_2025.svg/3840px-Google_Gemini_icon_2025.svg.png" alt="Gemini Icon" style="height: 50px;width: auto;display: block"></div><div class="tool-tile-name">Gemini</div></div></a>
+      <a href="https://pepperlabs.my/" style="text-decoration: none;" data-category="llm"><div class="tool-tile reveal reveal-delay-2"><div class="tool-tile-icon"><img src="https://1000logos.net/wp-content/uploads/2023/11/Copilot-Logo.png" alt="MS Copilot Icon" style="height: 50px;width: auto;display: block"></div><div class="tool-tile-name">MS Copilot</div></div></a>
+      <a href="https://pepperlabs.my/" style="text-decoration: none;" data-category="llm"><div class="tool-tile reveal reveal-delay-3"><div class="tool-tile-icon"><img src="https://raw.githubusercontent.com/lobehub/lobe-icons/refs/heads/master/packages/static-png/dark/perplexity-color.png" alt="Perplexity Icon" style="height: 50px;width: auto;display: block"></div><div class="tool-tile-name">Perplexity</div></div></a>
+      <!-- Agentic AI -->
+      <a href="https://pepperlabs.my/" style="text-decoration: none;" data-category="agentic"><div class="tool-tile reveal reveal-delay-3"><div class="tool-tile-icon"><img src="https://vectorseek.com/wp-content/uploads/2025/09/Google-flow-Logo-PNG-SVG-Vector-1.png" alt="Google Flow Icon" style="height: 50px;width: auto;display: block"></div><div class="tool-tile-name">Google Flow</div></div></a>
+      <a href="https://pepperlabs.my/" style="text-decoration: none;" data-category="agentic"><div class="tool-tile reveal reveal-delay-1"><div class="tool-tile-icon"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLcbdb2C8CwMN5W1l0o8JbhCd6ymBOhFcDhQ&s" alt="Fireflies Icon" style="height: 50px;width: auto;display: block"></div><div class="tool-tile-name">Fireflies</div></div></a>
+      <a href="https://pepperlabs.my/" style="text-decoration: none;" data-category="agentic"><div class="tool-tile reveal reveal-delay-1"><div class="tool-tile-icon"><img src="https://raw.githubusercontent.com/lobehub/lobe-icons/refs/heads/master/packages/static-png/light/manus.png" alt="Manus Icon" style="height: 50px;width: auto;display: block"></div><div class="tool-tile-name">Manus</div></div></a>
+      <a href="https://pepperlabs.my/" style="text-decoration: none;" data-category="agentic"><div class="tool-tile reveal reveal-delay-3"><div class="tool-tile-icon"><img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/notebooklm-icon.png" alt="NotebookLM Icon" style="height: 50px;width: auto;display: block"></div><div class="tool-tile-name">NotebookLM</div></div></a>
     </div>
   </div>
 </section>
@@ -1317,6 +1362,28 @@ footer {
     a.addEventListener('click', e => {
       const t = document.querySelector(a.getAttribute('href'));
       if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    });
+  });
+
+  // Tools filter
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const toolLinks = document.querySelectorAll('.tools-grid a[data-category]');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.dataset.filter;
+      toolLinks.forEach(link => {
+        const category = link.dataset.category;
+        if (filter === 'all' || category === filter) {
+          link.style.display = '';
+        } else {
+          link.style.display = 'none';
+        }
+      });
     });
   });
 </script>
