@@ -181,32 +181,20 @@ nav.scrolled { box-shadow: var(--shadow-md); }
 }
 @media (max-width: 860px) { .hero-sub { margin: 0 auto 36px; } }
 
-.hero-form {
-  display: flex; gap: 0;
-  background: var(--white);
-  border: 1.5px solid var(--border);
-  border-radius: var(--radius-sm);
-  overflow: hidden;
-  box-shadow: var(--shadow-sm);
+.hero-btn-wrap {
   max-width: 440px;
 }
-@media (max-width: 860px) { .hero-form { margin: 0 auto; } }
+@media (max-width: 860px) { .hero-btn-wrap { margin: 0 auto; } }
 
-.hero-form input {
-  flex: 1; padding: 14px 18px;
-  border: none; outline: none;
-  font-size: 14px; font-family: 'Inter', sans-serif;
-  color: var(--text-900);
-  background: transparent;
-}
-.hero-form input::placeholder { color: var(--text-300); }
-.hero-form button {
+.hero-btn-wrap button {
   background: var(--orange); color: #fff; border: none;
-  padding: 14px 22px; font-size: 14px; font-weight: 600;
+  padding: 14px 28px; font-size: 15px; font-weight: 600;
   font-family: 'Inter', sans-serif; cursor: pointer;
-  transition: background 0.2s; white-space: nowrap;
+  border-radius: var(--radius-sm);
+  transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+  white-space: nowrap;
 }
-.hero-form button:hover { background: var(--orange-dark); }
+.hero-btn-wrap button:hover { background: var(--orange-dark); box-shadow: 0 4px 16px rgba(245,131,31,0.35); transform: translateY(-1px); }
 
 .hero-trust {
   display: flex; align-items: center; gap: 16px;
@@ -322,6 +310,292 @@ nav.scrolled { box-shadow: var(--shadow-md); }
   max-width: 560px; line-height: 1.75; font-weight: 400;
 }
 
+/* ─── ABOUT PEPPER LABS ─── */
+.about-pl-wrap { background: var(--off-white); padding-top: 72px; padding-bottom: 0; }
+
+.about-pl-card {
+  background: linear-gradient(135deg, #1565C0 0%, #1E88E5 50%, #42A5F5 100%);
+  border-radius: 24px;
+  padding: 48px 52px 40px;
+  display: grid;
+  grid-template-columns: 1fr auto 1.4fr;
+  gap: 0;
+  align-items: center;
+  box-shadow: 0 16px 64px rgba(21,101,192,0.25);
+  position: relative;
+  overflow: hidden;
+}
+.about-pl-card::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 300px; height: 300px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.06);
+  pointer-events: none;
+}
+.about-pl-card::after {
+  content: '';
+  position: absolute;
+  bottom: -80px; left: 30%;
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.04);
+  pointer-events: none;
+}
+
+.about-pl-left { padding-right: 40px; }
+.about-pl-title {
+  font-family: 'Source Serif 4', serif;
+  font-size: 28px; font-weight: 700;
+  color: #fff; line-height: 1.25;
+  margin-bottom: 24px;
+}
+.about-pl-logo {
+  display: flex; align-items: center; gap: 10px;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 10px;
+  padding: 10px 16px;
+  width: fit-content;
+}
+
+.about-pl-divider {
+  width: 1px;
+  align-self: stretch;
+  background: rgba(255,255,255,0.2);
+  margin: 0 48px;
+}
+
+.about-pl-right p {
+  font-size: 15px;
+  color: rgba(255,255,255,0.88);
+  line-height: 1.75;
+}
+.about-pl-right strong { color: #fff; }
+
+.about-pl-footer {
+  background: rgba(21,101,192,0.08);
+  border: 1px solid rgba(21,101,192,0.15);
+  border-top: none;
+  border-radius: 0 0 24px 24px;
+  padding: 20px 52px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.about-pl-footer-left {
+  font-size: 14px; font-weight: 600;
+  color: var(--text-700);
+  max-width: 320px;
+}
+.about-pl-footer-right {
+  display: flex; gap: 20px; flex-wrap: wrap;
+}
+.about-pl-country {
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+.about-pl-country:hover { background: rgba(21,101,192,0.08); }
+.about-pl-flag { font-size: 28px; line-height: 1; }
+.about-pl-country-label { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; color: var(--text-300); text-transform: uppercase; }
+.about-pl-country-name { font-size: 15px; font-weight: 700; color: var(--blue); }
+
+@media (max-width: 860px) {
+  .about-pl-card { grid-template-columns: 1fr; padding: 36px 28px 32px; }
+  .about-pl-divider { width: 100%; height: 1px; margin: 24px 0; align-self: auto; }
+  .about-pl-left { padding-right: 0; }
+  .about-pl-footer { padding: 20px 28px; flex-direction: column; align-items: flex-start; }
+}
+
+/* ─── MARQUEE ─── */
+.marquee-wrap {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: var(--white);
+  padding: 18px 0; overflow: hidden;
+}
+.marquee-track {
+  display: flex; gap: 56px;
+  animation: marquee 28s linear infinite;
+  width: max-content; white-space: nowrap;
+}
+.marquee-item {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 13px; font-weight: 500; color: var(--text-500);
+  letter-spacing: 0.04em; text-transform: uppercase;
+}
+.marquee-item span { color: var(--orange); font-size: 16px; }
+@keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+/* ─── IMPLEMENTING PARTNERS / STAKEHOLDERS ─── */
+.stakeholders-section { padding: 88px 32px; background: var(--white); }
+.stakeholders-group-title {
+  font-family: 'Source Serif 4', serif;
+  font-size: 22px; font-weight: 700;
+  color: var(--text-900);
+  margin-bottom: 20px;
+  margin-top: 48px;
+}
+.stakeholders-group-title:first-of-type { margin-top: 0; }
+
+.stakeholders-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 12px;
+  margin-bottom: 12px;
+}
+@media (max-width: 1000px) { .stakeholders-grid { grid-template-columns: repeat(4, 1fr); } }
+@media (max-width: 580px)  { .stakeholders-grid { grid-template-columns: repeat(3, 1fr); } }
+
+.stakeholder-item {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 16px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80px;
+  transition: box-shadow 0.25s, transform 0.25s, border-color 0.25s;
+}
+.stakeholder-item:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+  border-color: var(--orange-mid);
+}
+.stakeholder-item img {
+  max-height: 44px;
+  max-width: 100%;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.7;
+  transition: filter 0.3s, opacity 0.3s;
+}
+.stakeholder-item:hover img {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+.stakeholder-fallback {
+  font-size: 11px; font-weight: 700;
+  color: var(--text-500); text-align: center;
+  letter-spacing: 0.04em; text-transform: uppercase;
+}
+
+/* ─── AI LEARNING MODULES (activities) ─── */
+.modules-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 40px;
+}
+@media (max-width: 900px) { .modules-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 500px) { .modules-grid { grid-template-columns: 1fr; } }
+
+.module-card {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  transition: transform 0.25s, box-shadow 0.25s;
+  cursor: default;
+}
+.module-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+
+.module-img {
+  height: 160px;
+  position: relative;
+  overflow: hidden;
+}
+.module-img-bg {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 40px;
+}
+.mod-bg-1 { background: linear-gradient(135deg, #D96A08, #F5831F); }
+.mod-bg-2 { background: linear-gradient(135deg, #0D6FBA, #1E96D4); }
+.mod-bg-3 { background: linear-gradient(135deg, #5B4FCF, #7C6DE8); }
+.mod-bg-4 { background: linear-gradient(135deg, #2D7D6A, #1FA37B); }
+
+.module-overlay {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
+  padding: 14px 16px 10px;
+}
+.module-overlay-title {
+  font-size: 14px; font-weight: 700; color: #fff;
+  line-height: 1.3;
+}
+
+.module-body {
+  background: var(--white);
+  padding: 16px 18px 20px;
+}
+.module-desc { font-size: 13px; color: var(--text-500); line-height: 1.65; }
+
+/* ─── CURRENT EVENT ─── */
+.event-section {
+  padding: 88px 32px;
+  background: var(--white);
+}
+.event-card {
+  background: linear-gradient(135deg, #1565C0 0%, #1E88E5 60%, #42A5F5 100%);
+  border-radius: 24px;
+  padding: 48px 52px;
+  position: relative;
+  overflow: hidden;
+}
+.event-card::before {
+  content: '';
+  position: absolute; top: -80px; right: -80px;
+  width: 320px; height: 320px; border-radius: 50%;
+  background: rgba(255,255,255,0.06);
+}
+.event-label {
+  font-size: 12px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.1em; color: rgba(255,255,255,0.7);
+  margin-bottom: 12px;
+}
+.event-title {
+  font-family: 'Source Serif 4', serif;
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 700; color: #fff;
+  margin-bottom: 12px;
+}
+.event-sub {
+  font-size: 15px; color: rgba(255,255,255,0.75);
+  margin-bottom: 40px; max-width: 520px;
+}
+.event-timeline {
+  background: rgba(0,0,0,0.2);
+  border-radius: var(--radius-md);
+  padding: 28px 32px;
+  max-width: 600px;
+}
+.event-step {
+  display: flex; align-items: flex-start; gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.event-step:last-child { border-bottom: none; }
+.event-dot {
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--orange);
+  flex-shrink: 0; margin-top: 5px;
+  box-shadow: 0 0 0 3px rgba(245,131,31,0.3);
+}
+.event-step-title { font-size: 14px; font-weight: 700; color: #fff; }
+.event-step-date { font-size: 12px; color: rgba(255,255,255,0.6); margin-top: 2px; }
+
+@media (max-width: 700px) {
+  .event-card { padding: 32px 24px; }
+  .event-timeline { padding: 20px 20px; }
+}
+
 /* ─── PROGRAMS GRID ─── */
 .programs-grid {
   display: grid;
@@ -352,7 +626,6 @@ nav.scrolled { box-shadow: var(--shadow-md); }
 .program-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
 .program-card:hover::before { transform: scaleX(1); }
 
-/* ─── CARD IMAGE PLACEHOLDER ─── */
 .card-image-placeholder {
   width: 100%;
   height: 180px;
@@ -376,7 +649,6 @@ nav.scrolled { box-shadow: var(--shadow-md); }
   transform: scale(1.05);
 }
 
-/* Gradient overlay on the placeholder image */
 .card-image-placeholder::after {
   content: '';
   position: absolute;
@@ -385,7 +657,6 @@ nav.scrolled { box-shadow: var(--shadow-md); }
   pointer-events: none;
 }
 
-/* Fallback gradient when no real image is used */
 .card-img-fallback {
   width: 100%;
   height: 100%;
@@ -407,7 +678,6 @@ nav.scrolled { box-shadow: var(--shadow-md); }
   color: rgba(255,255,255,0.75);
 }
 
-/* Individual card gradient backgrounds */
 .card-bg-1 { background: linear-gradient(135deg, #D96A08 0%, #F5831F 50%, #FDB36A 100%); }
 .card-bg-2 { background: linear-gradient(135deg, #0D6FBA 0%, #1E96D4 50%, #5BB8EE 100%); }
 .card-bg-3 { background: linear-gradient(135deg, #2D7D6A 0%, #1FA37B 50%, #3ECBA0 100%); }
@@ -415,21 +685,7 @@ nav.scrolled { box-shadow: var(--shadow-md); }
 .card-bg-5 { background: linear-gradient(135deg, #C0392B 0%, #E74C3C 50%, #FF7A6E 100%); }
 .card-bg-6 { background: linear-gradient(135deg, #1A6A8A 0%, #2B8CB5 50%, #5BBAD5 100%); }
 
-.card-content {
-  padding: 24px 28px 28px;
-}
-
-.card-num {
-  font-family: 'Source Serif 4', serif;
-  font-size: 48px; font-weight: 700;
-  color: var(--orange-mid);
-  line-height: 1; margin-bottom: 16px;
-}
-.card-icon-wrap {
-  width: 48px; height: 48px; border-radius: 12px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 22px; margin-bottom: 18px;
-}
+.card-content { padding: 24px 28px 28px; }
 .card-title {
   font-family: 'Source Serif 4', serif;
   font-size: 20px; font-weight: 600;
@@ -451,86 +707,6 @@ nav.scrolled { box-shadow: var(--shadow-md); }
   transition: gap 0.2s;
 }
 .card-link:hover { gap: 8px; }
-
-.program-card.featured {
-  background: linear-gradient(145deg, var(--text-900) 0%, #3D2E24 100%);
-  border-color: transparent;
-  color: #fff;
-}
-.program-card.featured .card-num { color: rgba(245,131,31,0.3); }
-.program-card.featured .card-title { color: #fff; }
-.program-card.featured .card-desc { color: rgba(255,255,255,0.65); }
-.program-card.featured .pill { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.7); border-color: rgba(255,255,255,0.15); }
-.program-card.featured .card-link { color: var(--orange); }
-.program-card.featured::before { background: linear-gradient(90deg, var(--orange), var(--orange-dark)); }
-
-/* ─── FEATURES ─── */
-.features-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  margin-top: 48px;
-}
-@media (max-width: 700px) { .features-grid { grid-template-columns: 1fr; } }
-
-.feature-card {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 32px;
-  display: flex; gap: 20px;
-  transition: box-shadow 0.25s, transform 0.25s;
-}
-.feature-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
-
-.feature-icon {
-  width: 52px; height: 52px; flex-shrink: 0;
-  border-radius: 14px;
-  display: flex; align-items: center; justify-content: center; font-size: 24px;
-}
-.fi-orange { background: var(--orange-light); }
-.fi-green  { background: #ECFDF5; }
-.fi-blue   { background: #EFF6FF; }
-.fi-purple { background: #F5F3FF; }
-
-.feature-title { font-size: 16px; font-weight: 700; color: var(--text-900); margin-bottom: 6px; }
-.feature-desc { font-size: 14px; color: var(--text-500); line-height: 1.65; }
-
-/* ─── PROCESS ─── */
-.process-steps {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-  margin-top: 56px;
-  position: relative;
-}
-.process-steps::before {
-  content: '';
-  position: absolute;
-  top: 22px; left: 12.5%; right: 12.5%;
-  height: 1.5px;
-  background: repeating-linear-gradient(90deg, var(--orange) 0, var(--orange) 8px, transparent 8px, transparent 16px);
-  z-index: 0;
-}
-@media (max-width: 700px) { .process-steps { grid-template-columns: 1fr 1fr; } .process-steps::before { display: none; } }
-@media (max-width: 420px) { .process-steps { grid-template-columns: 1fr; } }
-
-.process-step {
-  text-align: center; position: relative; z-index: 1;
-  transition: transform 0.25s;
-}
-.process-step:hover { transform: translateY(-4px); }
-
-.step-num {
-  width: 44px; height: 44px; border-radius: 50%;
-  background: var(--orange); color: #fff;
-  font-weight: 700; font-size: 16px;
-  display: flex; align-items: center; justify-content: center;
-  margin: 0 auto 20px;
-  box-shadow: 0 0 0 6px var(--orange-light);
-}
-.step-title { font-size: 15px; font-weight: 700; color: var(--text-900); margin-bottom: 8px; }
-.step-desc  { font-size: 13px; color: var(--text-500); line-height: 1.65; }
 
 /* ─── TOOLS ─── */
 .tools-filter {
@@ -554,10 +730,7 @@ nav.scrolled { box-shadow: var(--shadow-md); }
   transition: all 0.2s ease;
   letter-spacing: 0.01em;
 }
-.filter-btn:hover {
-  border-color: var(--orange);
-  color: var(--orange);
-}
+.filter-btn:hover { border-color: var(--orange); color: var(--orange); }
 .filter-btn.active {
   background: var(--orange);
   border-color: var(--orange);
@@ -583,83 +756,140 @@ nav.scrolled { box-shadow: var(--shadow-md); }
   transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s, opacity 0.3s;
 }
 .tool-tile:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--orange-mid); }
-.tool-tile.hidden {
-  display: none;
-}
-.tool-tile-icon { font-size: 26px; margin-bottom: 8px; 
-    display: flex;
-  align-items: center;
-  justify-content: center;
-}
+.tool-tile-icon { font-size: 26px; margin-bottom: 8px; display: flex; align-items: center; justify-content: center; }
 .tool-tile-name { font-size: 12px; font-weight: 500; color: var(--text-500); }
 
-/* ─── TESTIMONIALS ─── */
-.testimonials-grid {
+/* ─── FAQ ─── */
+.faq-section { padding: 88px 32px; background: var(--off-white); }
+
+.faq-tabs {
+  display: flex; gap: 8px; margin-top: 32px; margin-bottom: 32px;
+}
+.faq-tab {
+  font-size: 14px; font-weight: 600;
+  padding: 10px 24px; border-radius: 50px;
+  border: 1.5px solid var(--border);
+  background: var(--white); color: var(--text-500);
+  cursor: pointer; transition: all 0.2s;
+}
+.faq-tab.active {
+  background: var(--text-900); border-color: var(--text-900); color: #fff;
+}
+.faq-tab:hover:not(.active) { border-color: var(--orange); color: var(--orange); }
+
+.faq-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  margin-top: 48px;
+  gap: 16px;
 }
-@media (max-width: 680px) { .testimonials-grid { grid-template-columns: 1fr; } }
+@media (max-width: 700px) { .faq-grid { grid-template-columns: 1fr; } }
 
-.testimonial-card {
+.faq-item {
   background: var(--white);
   border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 32px;
-  transition: box-shadow 0.25s, transform 0.25s;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: box-shadow 0.2s;
 }
-.testimonial-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+.faq-item:hover { box-shadow: var(--shadow-sm); }
 
-.stars { color: var(--orange); font-size: 15px; margin-bottom: 16px; letter-spacing: 2px; }
-.testimonial-text { font-size: 15px; color: var(--text-700); line-height: 1.75; font-weight: 400; font-style: italic; margin-bottom: 22px; }
-.testimonial-author { display: flex; align-items: center; gap: 12px; }
-.author-avatar {
-  width: 42px; height: 42px; border-radius: 50%;
-  background: linear-gradient(135deg, var(--orange-dark), var(--orange));
-  color: #fff; font-size: 15px; font-weight: 700;
-  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+.faq-question {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 20px 24px; cursor: pointer;
+  gap: 16px;
 }
-.author-name { font-size: 14px; font-weight: 700; color: var(--text-900); }
-.author-role { font-size: 12px; color: var(--text-300); margin-top: 1px; }
+.faq-question-text { font-size: 14px; font-weight: 600; color: var(--blue); line-height: 1.4; }
+.faq-icon {
+  width: 20px; height: 20px; flex-shrink: 0;
+  border: 1.5px solid var(--border);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; color: var(--text-500);
+  transition: transform 0.25s, background 0.2s;
+}
+.faq-item.open .faq-icon { transform: rotate(180deg); background: var(--orange-light); border-color: var(--orange-mid); color: var(--orange); }
 
-/* ─── MARQUEE ─── */
-.marquee-wrap {
+.faq-answer {
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.35s cubic-bezier(.4,0,.2,1);
+}
+.faq-answer-inner {
+  padding: 0 24px 20px;
+  font-size: 14px; color: var(--text-500); line-height: 1.7;
   border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  background: var(--white);
-  padding: 18px 0; overflow: hidden;
+  padding-top: 16px;
 }
-.marquee-track {
-  display: flex; gap: 56px;
-  animation: marquee 28s linear infinite;
-  width: max-content; white-space: nowrap;
-}
-.marquee-item {
-  display: flex; align-items: center; gap: 8px;
-  font-size: 13px; font-weight: 500; color: var(--text-500);
-  letter-spacing: 0.04em; text-transform: uppercase;
-}
-.marquee-item span { color: var(--orange); font-size: 16px; }
-@keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+.faq-item.open .faq-answer { max-height: 300px; }
 
-/* ─── PARTNERS ─── */
-.partners-row {
-  display: flex; flex-wrap: wrap;
-  justify-content: center; gap: 12px;
-  margin-top: 40px;
+/* ─── FINAL CTA WITH VIDEO ─── */
+.final-cta {
+  background: linear-gradient(135deg, #1565C0 0%, #0D3B6B 100%);
+  padding: 88px 32px;
+  position: relative; overflow: hidden;
 }
-.partner-chip {
-  display: flex; align-items: center; gap: 8px;
-  padding: 10px 20px; border-radius: 50px;
-  border: 1px solid var(--border);
-  background: var(--white);
-  font-size: 13px; font-weight: 600; color: var(--text-700);
-  transition: border-color 0.2s, box-shadow 0.2s;
+.final-cta::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 80% at 50% 0%, rgba(245,131,31,0.15) 0%, transparent 65%);
+  pointer-events: none;
 }
-.partner-chip:hover { border-color: var(--orange); box-shadow: 0 2px 12px rgba(245,131,31,0.15); }
+.final-cta-inner {
+  max-width: 1160px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 64px; align-items: center;
+  position: relative; z-index: 1;
+}
+@media (max-width: 860px) { .final-cta-inner { grid-template-columns: 1fr; } }
 
-/* ─── CTA BAND ─── */
+.final-cta-eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--orange); margin-bottom: 16px; }
+.final-cta-title {
+  font-family: 'Source Serif 4', serif;
+  font-size: clamp(28px, 4vw, 44px); font-weight: 700;
+  color: #fff; line-height: 1.15; letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+.final-cta-sub { font-size: 16px; color: rgba(255,255,255,0.65); margin-bottom: 36px; line-height: 1.7; }
+
+.final-cta-btn {
+  background: var(--orange); color: #fff; border: none;
+  padding: 16px 36px; font-size: 15px; font-weight: 700;
+  font-family: 'Inter', sans-serif; cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+  display: inline-block; text-decoration: none;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.3);
+}
+.final-cta-btn:hover { background: var(--orange-dark); transform: translateY(-1px); }
+
+.final-cta-links {
+  display: flex; gap: 12px; margin-top: 20px; flex-wrap: wrap;
+}
+.final-cta-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 10px 18px; border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 6px; color: rgba(255,255,255,0.75);
+  font-size: 13px; font-weight: 500; text-decoration: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+.final-cta-link:hover { border-color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.05); }
+
+.final-cta-video {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.4);
+}
+.video-wrap {
+  position: relative; padding-bottom: 56.25%;
+  height: 0; overflow: hidden;
+  background: #000;
+}
+.video-wrap iframe {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; border: none;
+}
+
+/* ─── CTA BAND (old, now replaced by final-cta) ─── */
 .cta-band {
   background: linear-gradient(135deg, var(--text-900) 0%, #3D2720 100%);
   padding: 88px 32px;
@@ -680,27 +910,17 @@ nav.scrolled { box-shadow: var(--shadow-md); }
   margin-bottom: 18px;
 }
 .cta-sub { font-size: 16px; color: rgba(255,255,255,0.6); margin-bottom: 40px; line-height: 1.7; }
-
-.cta-form {
-  display: flex; gap: 0;
-  background: var(--white); border-radius: var(--radius-sm);
-  overflow: hidden; max-width: 460px; margin: 0 auto 20px;
+.cta-btn-wrap { margin: 0 auto 20px; }
+.cta-btn-wrap button {
+  background: var(--orange); color: #fff; border: none;
+  padding: 16px 36px; font-size: 15px; font-weight: 700;
+  font-family: 'Inter', sans-serif; cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+  white-space: nowrap;
   box-shadow: 0 8px 40px rgba(0,0,0,0.3);
 }
-.cta-form input {
-  flex: 1; padding: 16px 20px;
-  border: none; outline: none;
-  font-size: 14px; font-family: 'Inter', sans-serif;
-  color: var(--text-900);
-}
-.cta-form input::placeholder { color: var(--text-300); }
-.cta-form button {
-  background: var(--orange); color: #fff; border: none;
-  padding: 16px 24px; font-size: 14px; font-weight: 700;
-  font-family: 'Inter', sans-serif; cursor: pointer;
-  transition: background 0.2s; white-space: nowrap;
-}
-.cta-form button:hover { background: var(--orange-dark); }
+.cta-btn-wrap button:hover { background: var(--orange-dark); transform: translateY(-1px); }
 .cta-note { font-size: 12px; color: rgba(255,255,255,0.4); }
 
 /* ─── FOOTER ─── */
@@ -731,50 +951,13 @@ footer {
   display: flex; justify-content: space-between; align-items: center;
   font-size: 13px; color: var(--text-300); flex-wrap: wrap; gap: 12px;
 }
-
-/* ─── VIDEO MODAL ─── */
-.modal-overlay {
-  display: none;
-  position: fixed; inset: 0; z-index: 1000;
-  background: rgba(0,0,0,0.75);
-  backdrop-filter: blur(4px);
-  align-items: center; justify-content: center;
-}
-.modal-overlay.open { display: flex; }
-
-.modal-box {
-  background: var(--white);
-  border-radius: var(--radius-lg);
-  padding: 28px;
-  width: 90%; max-width: 800px;
-  position: relative;
-  box-shadow: var(--shadow-lg);
-}
-.modal-close {
-  position: absolute; top: 14px; right: 18px;
-  font-size: 22px; background: none; border: none;
-  cursor: pointer; color: var(--text-500);
-  line-height: 1; transition: color 0.2s;
-}
-.modal-close:hover { color: var(--text-900); }
-
-.modal-video-wrap {
-  position: relative; padding-bottom: 56.25%; /* 16:9 */
-  height: 0; overflow: hidden; border-radius: var(--radius-md);
-  background: #000;
-}
-.modal-video-wrap iframe {
-  position: absolute; inset: 0;
-  width: 100%; height: 100%; border: none;
-}
-
 </style>
 </head>
 <body>
 
 <!-- TOPBAR -->
 <div class="topbar">
-  🎓 New batch starting June 2025 — <a href="#enroll">Register your interest today</a> &nbsp;•&nbsp; Seats are limited.
+  🎓 New batch starting June 2025 — <a href="#register">Register your interest today</a> &nbsp;•&nbsp; Seats are limited.
 </div>
 
 <!-- NAV -->
@@ -784,15 +967,16 @@ footer {
       <img src="https://pepperlabs.my/assets/logos/pepperlabs.png" alt="Pepper Labs" style="height:60px;width:auto;display:block;">
     </a>
     <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#stakeholders">Partners</a></li>
       <li><a href="#programs">Programs</a></li>
-      <li><a href="#process">How It Works</a></li>
+      <li><a href="#modules">Learning Modules</a></li>
       <li><a href="#tools">Tools</a></li>
-      <li><a href="#testimonials">Success Stories</a></li>
-      <li><a href="#partners">Partners</a></li>
+      <li><a href="#faq">FAQ</a></li>
     </ul>
     <div class="nav-actions">
       <a href="tel:+60165809532" class="btn-ghost">Contact Us</a>
-      <a href="#enroll" class="btn-orange">Enroll Now →</a>
+      <a href="#register" class="btn-orange">Register Now →</a>
     </div>
   </div>
 </nav>
@@ -803,13 +987,12 @@ footer {
     <div>
       <div class="reveal">
         <div class="hero-eyebrow"><div class="hero-eyebrow-dot"></div> Malaysia's Premier AI Training Platform</div>
-        <h1>Build Your AI Skills.<br>Shape Malaysia's Future.</h1>
+        <h1>AI Transformation<br>Starts Here.</h1>
         <p class="hero-sub">A centralized hub for practical, responsible AI training — designed for students, educators, the workforce, and the public sector. Expert-led. Industry-aligned. Impact-driven.</p>
       </div>
       <div class="reveal reveal-delay-1">
-        <div class="hero-form">
-          <input type="email" placeholder="Enter your work email...">
-          <button>Get Started →</button>
+        <div class="hero-btn-wrap">
+          <button onclick="document.getElementById('register').scrollIntoView({behavior:'smooth'})">Register Now →</button>
         </div>
         <div class="hero-trust">
           <span class="trust-check">
@@ -918,7 +1101,235 @@ footer {
   </div>
 </div>
 
-<!-- PROGRAMS -->
+<!-- ABOUT PEPPER LABS -->
+<section class="section about-pl-wrap" id="about">
+  <div class="container">
+    <div class="about-pl-card reveal">
+      <div class="about-pl-left">
+        <h2 class="about-pl-title">About Pepper Labs:<br>AI Training Hub</h2>
+        <div class="about-pl-logo">
+          <img src="https://pepperlabs.my/assets/logos/pepperlabs.png" alt="Pepper Labs" style="height:36px;width:auto;filter:brightness(0) invert(1);">
+        </div>
+      </div>
+      <div class="about-pl-divider"></div>
+      <div class="about-pl-right">
+        <p>Pepper Labs is a dynamic impact strategist addressing critical societal challenges through comprehensive value creation and end-to-end solutions. As Malaysia's premier AI training platform, we bridge the gap between emerging technology and real-world application.</p>
+        <p style="margin-top:14px;">In the field of AI education, Pepper Labs partners with leading institutions — including Google.org, AVPN, the Asian Development Bank, and Yayasan Peneraju — to deliver the <strong>AI Training Hub</strong>: a programme specifically designed for the workforce, educators, public servants, and students across Malaysia. The programme helps participants understand, integrate, and leverage AI tools in their professional and learning journeys.</p>
+      </div>
+    </div>
+    <div class="about-pl-footer reveal reveal-delay-1">
+      <div class="about-pl-footer-left">
+        <strong>Pepper Labs programmes are also available across Asia Pacific</strong>
+      </div>
+      <div class="about-pl-footer-right">
+        <a href="#" class="about-pl-country">
+          <span class="about-pl-flag">🇲🇾</span>
+          <div>
+            <div class="about-pl-country-label">PEPPER LABS IN</div>
+            <div class="about-pl-country-name">Malaysia ↗</div>
+          </div>
+        </a>
+        <a href="#" class="about-pl-country">
+          <span class="about-pl-flag">🇮🇩</span>
+          <div>
+            <div class="about-pl-country-label">PEPPER LABS IN</div>
+            <div class="about-pl-country-name">Indonesia ↗</div>
+          </div>
+        </a>
+        <a href="#" class="about-pl-country">
+          <span class="about-pl-flag">🇵🇭</span>
+          <div>
+            <div class="about-pl-country-label">PEPPER LABS IN</div>
+            <div class="about-pl-country-name">Philippines ↗</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STAKEHOLDERS / IMPLEMENTING PARTNERS -->
+<section class="stakeholders-section" id="stakeholders">
+  <div class="container">
+    <div class="reveal" style="text-align:center;margin-bottom:8px;">
+      <div class="section-eyebrow">Our Ecosystem</div>
+      <h2 class="section-title">Implementing <span class="gradient-text">Partners</span></h2>
+      <p class="section-sub" style="margin:0 auto;">Collaborating with leading ministries, agencies, and institutions to drive AI adoption across Malaysia.</p>
+    </div>
+
+    <div class="stakeholders-group-title reveal reveal-delay-1">Implementing Partners</div>
+    <div class="stakeholders-grid reveal reveal-delay-2">
+      <div class="stakeholder-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Malaysia_Kementerian_Digital.svg/320px-Malaysia_Kementerian_Digital.svg.png" alt="Kementerian Digital" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="stakeholder-fallback" style="display:none">Kementerian Digital</div>
+      </div>
+      <div class="stakeholder-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/MyDigital.svg/320px-MyDigital.svg.png" alt="MyDigital" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="stakeholder-fallback" style="display:none">MyDigital</div>
+      </div>
+      <div class="stakeholder-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/TVET_Malaysia_logo.png/320px-TVET_Malaysia_logo.png" alt="TVET Malaysia" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="stakeholder-fallback" style="display:none">TVET Malaysia</div>
+      </div>
+      <div class="stakeholder-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Kementerian_Pendidikan_Malaysia.svg/320px-Kementerian_Pendidikan_Malaysia.svg.png" alt="Kementerian Pendidikan" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="stakeholder-fallback" style="display:none">Kementerian Pendidikan</div>
+      </div>
+      <div class="stakeholder-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Kementerian_Perpaduan_Negara_Malaysia.png/240px-Kementerian_Perpaduan_Negara_Malaysia.png" alt="Kementerian Perpaduan Negara" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="stakeholder-fallback" style="display:none">Kementerian Perpaduan Negara</div>
+      </div>
+      <div class="stakeholder-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/92/KBS_Malaysia.png" alt="KBS" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="stakeholder-fallback" style="display:none">KBS</div>
+      </div>
+      <div class="stakeholder-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Kementerian_Sumber_Manusia_Malaysia.svg/320px-Kementerian_Sumber_Manusia_Malaysia.svg.png" alt="Kementerian Sumber Manusia" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="stakeholder-fallback" style="display:none">Kementerian Sumber Manusia</div>
+      </div>
+    </div>
+
+    <div class="stakeholders-group-title reveal reveal-delay-1" style="margin-top:56px;">Our Ecosystem</div>
+    <div class="stakeholders-grid reveal reveal-delay-2">
+      <div class="stakeholder-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/JTM_logo.png/320px-JTM_logo.png" alt="JTM" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="stakeholder-fallback" style="display:none">JTM</div>
+      </div>
+      <div class="stakeholder-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/MDEC_logo.svg/2560px-MDEC_logo.svg.png" alt="MDEC" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="stakeholder-fallback" style="display:none">MDEC</div>
+      </div>
+      <div class="stakeholder-item">
+        <img src="https://hrdc.com.my/wp-content/uploads/2022/10/HRD-Corp-Logo.png" alt="HRD Corp" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="stakeholder-fallback" style="display:none">HRD Corp</div>
+      </div>
+      <div class="stakeholder-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/PERKESO_logo.svg/2560px-PERKESO_logo.svg.png" alt="PERKESO" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="stakeholder-fallback" style="display:none">PERKESO</div>
+      </div>
+      <div class="stakeholder-item">
+        <img src="https://www.johortalent.com.my/wp-content/uploads/2022/09/JTDC-Logo.png" alt="Johor Talent Development Council" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="stakeholder-fallback" style="display:none">Johor Talent Dev. Council</div>
+      </div>
+      <div class="stakeholder-item">
+        <img src="https://iskandarmalaysia.com.my/wp-content/uploads/2022/01/IRA-Logo.png" alt="Iskandar Regional Development Authority" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="stakeholder-fallback" style="display:none">Iskandar Regional Dev. Authority</div>
+      </div>
+      <div class="stakeholder-item">
+        <img src="https://www.iskandarinvestment.com/wp-content/uploads/2022/01/IIB-logo.png" alt="Iskandar Investment" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="stakeholder-fallback" style="display:none">Iskandar Investment</div>
+      </div>
+    </div>
+
+    <div class="stakeholders-grid reveal reveal-delay-3" style="margin-top:12px;">
+      <div class="stakeholder-item">
+        <img src="https://www.p194.com.my/wp-content/uploads/2022/01/p194-logo.png" alt="P194 Petra Jaya" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="stakeholder-fallback" style="display:none">P194 Petra Jaya</div>
+      </div>
+      <div class="stakeholder-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Pejabat_Aku_Audit_Serawak_logo.png/320px-Pejabat_Aku_Audit_Serawak_logo.png" alt="Pejabat Audit Sarawak" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="stakeholder-fallback" style="display:none">Pejabat Audit Sarawak</div>
+      </div>
+      <div class="stakeholder-item">
+        <img src="https://sdec.com.my/wp-content/uploads/2023/03/sdec_logo.png" alt="SDEC" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="stakeholder-fallback" style="display:none">SDEC Digitalising Sarawak</div>
+      </div>
+      <div class="stakeholder-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Talentcorp_logo.png/320px-Talentcorp_logo.png" alt="TalentCorp" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="stakeholder-fallback" style="display:none">TalentCorp</div>
+      </div>
+      <div class="stakeholder-item">
+        <img src="https://mranti.my/wp-content/uploads/2022/03/mranti-logo.png" alt="MRANTI" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="stakeholder-fallback" style="display:none">MRANTI</div>
+      </div>
+      <div class="stakeholder-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/MaGIC_logo.png/320px-MaGIC_logo.png" alt="MaGIC" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="stakeholder-fallback" style="display:none">MaGIC</div>
+      </div>
+      <div class="stakeholder-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Maybank_logo.svg/2560px-Maybank_logo.svg.png" alt="Maybank" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="stakeholder-fallback" style="display:none">Maybank</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AI LEARNING MODULES -->
+<section class="section section-alt" id="modules">
+  <div class="container">
+    <div class="reveal" style="text-align:center;">
+      <div class="section-eyebrow">Activities & Learning</div>
+      <h2 class="section-title">AI Learning Modules <span class="gradient-text">for Educators</span></h2>
+      <p class="section-sub" style="margin:0 auto;">Free access to learning modules for participants of our AI Training programmes — practical, applied, and immediately useful.</p>
+    </div>
+
+    <div class="modules-grid">
+      <div class="module-card reveal reveal-delay-1">
+        <div class="module-img">
+          <div class="module-img-bg mod-bg-1">🤖</div>
+          <div class="module-overlay">
+            <div class="module-overlay-title">AI for Educator (Part 1)</div>
+          </div>
+        </div>
+        <div class="module-body">
+          <div class="module-desc">Introduction to generative AI concepts, classroom use cases, and Microsoft Copilot fundamentals.</div>
+        </div>
+      </div>
+
+      <div class="module-card reveal reveal-delay-2">
+        <div class="module-img">
+          <div class="module-img-bg mod-bg-2">📋</div>
+          <div class="module-overlay">
+            <div class="module-overlay-title">AI for Educator (Part 2)</div>
+          </div>
+        </div>
+        <div class="module-body">
+          <div class="module-desc">Applied Copilot practice, lesson planning labs, and assessment design with Microsoft AI tools.</div>
+        </div>
+      </div>
+
+      <div class="module-card reveal reveal-delay-3">
+        <div class="module-img">
+          <div class="module-img-bg mod-bg-3">⚡</div>
+          <div class="module-overlay">
+            <div class="module-overlay-title">Building Agents in Copilot Chat</div>
+          </div>
+        </div>
+        <div class="module-body">
+          <div class="module-desc">Learn to build and deploy intelligent agents using Microsoft Copilot Chat for enhanced AI-powered learning experiences.</div>
+        </div>
+      </div>
+
+      <div class="module-card reveal reveal-delay-4">
+        <div class="module-img">
+          <div class="module-img-bg mod-bg-4">📈</div>
+          <div class="module-overlay">
+            <div class="module-overlay-title">Introduction to Learning Accelerators</div>
+          </div>
+        </div>
+        <div class="module-body">
+          <div class="module-desc">Introduction to Microsoft Learning Accelerators and their role in enhancing educational experiences for students.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Eligibility -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:48px;" class="reveal reveal-delay-1">
+      <div style="background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px;text-align:center;">
+        <div style="font-size:32px;margin-bottom:12px;">🎓</div>
+        <div style="font-size:16px;font-weight:700;color:var(--text-900);margin-bottom:8px;">Malaysian Educators</div>
+        <div style="font-size:14px;color:var(--text-500);">Open to all K–12 and TVET educators across Malaysia for free of charge.</div>
+      </div>
+      <div style="background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px;text-align:center;">
+        <div style="font-size:32px;margin-bottom:12px;">💡</div>
+        <div style="font-size:16px;font-weight:700;color:var(--text-900);margin-bottom:8px;">Commitment to Educational Innovation</div>
+        <div style="font-size:14px;color:var(--text-500);">Passionate and committed to driving impact in AI-powered education.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS (kept as-is per requirement) -->
 <section class="section" id="programs">
   <div class="container">
     <div class="reveal">
@@ -928,12 +1339,9 @@ footer {
     </div>
     <div class="programs-grid">
 
-      <!-- Card 01 -->
       <div class="program-card reveal reveal-delay-1">
         <div class="card-image-placeholder">
-          <div class="card-img-fallback card-bg-1">
-            <img src="WhatsApp Image 2026-04-28 at 23.43.28 (5).jpeg" alt="Google" style="height:auto;width:auto;display:block;">
-          </div>
+          <div class="card-img-fallback card-bg-1">🤖</div>
         </div>
         <div class="card-content">
           <div class="card-title">AI Masterclass</div>
@@ -943,78 +1351,63 @@ footer {
         </div>
       </div>
 
-      <!-- Card 02 -->
       <div class="program-card reveal reveal-delay-2">
         <div class="card-image-placeholder">
-          <div class="card-img-fallback card-bg-2">
-            <img src="WhatsApp Image 2026-04-28 at 23.43.28 (4).jpeg" alt="Google" style="height:auto;width:auto;display:block;">
-          </div>
+          <div class="card-img-fallback card-bg-2">📊</div>
         </div>
         <div class="card-content">
           <div class="card-title">AI Upskilling Track</div>
           <div class="card-desc">Structured 4–8 week certification pathways for the workforce and students. Earn nationally recognised credentials that employers value and trust.</div>
           <div class="card-tags"><span class="pill">Workforce</span><span class="pill">Certification</span><span class="pill">4–8 Weeks</span></div>
-          <a href="https://pepper-s-site-1c7b.thinkific.com/products/courses/ai-placeholder" class="card-link">Explore program →</a>
+          <a href="#register" class="card-link">Explore program →</a>
         </div>
       </div>
 
-      <!-- Card 03 -->
       <div class="program-card reveal reveal-delay-3">
         <div class="card-image-placeholder">
-          <div class="card-img-fallback card-bg-3">
-            <img src="WhatsApp Image 2026-04-28 at 23.43.28 (3).jpeg" alt="Google" style="height:auto;width:auto;display:block;">
-          </div>
+          <div class="card-img-fallback card-bg-3">⚙️</div>
         </div>
         <div class="card-content">
           <div class="card-title">AI Solutioning</div>
           <div class="card-desc">End-to-end support for organisations — from use-case identification and piloting, to full AI deployment. Built around your real operational needs.</div>
           <div class="card-tags"><span class="pill pill-orange">Enterprise</span><span class="pill">Government</span><span class="pill">Custom</span></div>
-          <a href="#enroll" class="card-link">Explore program →</a>
+          <a href="#register" class="card-link">Explore program →</a>
         </div>
       </div>
 
-      <!-- Card 04 -->
       <div class="program-card reveal reveal-delay-1">
         <div class="card-image-placeholder">
-          <div class="card-img-fallback card-bg-4">
-            <img src="WhatsApp Image 2026-04-28 at 23.43.28 (2).jpeg" alt="Google" style="height:auto;width:auto;display:block;">
-          </div>
+          <div class="card-img-fallback card-bg-4">🚀</div>
         </div>
         <div class="card-content">
           <div class="card-title">Future Skills Accelerator</div>
           <div class="card-desc">In partnership with Yayasan Peneraju — developing AI-ready Bumiputera talent aligned with national priorities and industry demand.</div>
           <div class="card-tags"><span class="pill">Yayasan Peneraju</span><span class="pill pill-orange">Bumiputera</span></div>
-          <a href="#enroll" class="card-link">Explore program →</a>
+          <a href="#register" class="card-link">Explore program →</a>
         </div>
       </div>
 
-      <!-- Card 05 -->
       <div class="program-card reveal reveal-delay-2">
         <div class="card-image-placeholder">
-          <div class="card-img-fallback card-bg-5">
-            <img src="WhatsApp Image 2026-04-28 at 23.43.28 (1).jpeg" alt="Google" style="height:auto;width:auto;display:block;">
-          </div>
+          <div class="card-img-fallback card-bg-5">🌱</div>
         </div>
         <div class="card-content">
           <div class="card-title">AI Opportunity Fund</div>
           <div class="card-desc">Supported by AVPN, Google.org, and the Asian Development Bank — building responsible AI capability across Malaysia and Asia Pacific.</div>
           <div class="card-tags"><span class="pill">AVPN</span><span class="pill">Google.org</span><span class="pill pill-orange">Scholarships</span></div>
-          <a href="#enroll" class="card-link">Explore program →</a>
+          <a href="#register" class="card-link">Explore program →</a>
         </div>
       </div>
 
-      <!-- Card 06 -->
       <div class="program-card reveal reveal-delay-3">
         <div class="card-image-placeholder">
-          <div class="card-img-fallback card-bg-6">
-            <img src="WhatsApp Image 2026-04-28 at 23.43.28 (6).jpeg" alt="Google" style="height:auto;width:auto;display:block;">
-          </div>
+          <div class="card-img-fallback card-bg-6">🏛️</div>
         </div>
         <div class="card-content">
           <div class="card-title">Public Sector AI</div>
           <div class="card-desc">Tailored AI masterclasses and solutioning for ministries and government agencies — policy-relevant, governance-first, and responsibly designed.</div>
           <div class="card-tags"><span class="pill">Ministry</span><span class="pill">Governance</span><span class="pill pill-orange">Public Sector</span></div>
-          <a href="#enroll" class="card-link">Explore program →</a>
+          <a href="#register" class="card-link">Explore program →</a>
         </div>
       </div>
 
@@ -1022,45 +1415,44 @@ footer {
   </div>
 </section>
 
-<!-- WHY PEPPER LABS -->
-<section class="section section-alt">
+<!-- CURRENT EVENT -->
+<section class="event-section" id="events">
   <div class="container">
-    <div style="display:flex;gap:64px;flex-wrap:wrap;align-items:flex-start;">
-      <div style="flex:1;min-width:260px;" class="reveal">
-        <div class="section-eyebrow">Why Pepper Labs</div>
-        <h2 class="section-title">Built for <span class="gradient-text">Real-World Impact</span></h2>
-        <p class="section-sub">We don't teach AI for the sake of AI. Every programme is designed around real challenges, real users, and real outcomes.</p>
-        <a href="#enroll" class="btn-orange" style="margin-top:28px;display:inline-flex;">Start Your Journey →</a>
-      </div>
-      <div style="flex:2;min-width:300px;">
-        <div class="features-grid">
-          <div class="feature-card reveal reveal-delay-1">
-            <div class="feature-icon fi-orange">🎯</div>
-            <div>
-              <div class="feature-title">Problem-First Approach</div>
-              <div class="feature-desc">AI is applied where it truly adds value. Every module is anchored to real challenges, not abstract theory.</div>
-            </div>
+    <div class="reveal" style="margin-bottom:32px;">
+      <div class="section-eyebrow">Current Event</div>
+      <h2 class="section-title">Program <span class="gradient-text">Timeline</span></h2>
+    </div>
+    <div class="event-card reveal reveal-delay-1">
+      <div class="event-label">Program Timeline</div>
+      <div class="event-title">Starting from November 2025 – June 2026</div>
+      <div class="event-sub">Follow us on social media <strong style="color:#fff;">@pepperlabs</strong> for detailed dates, and email us at <strong style="color:#fff;">info@pepperlabs.my</strong> for more info.</div>
+      <div class="event-timeline">
+        <div class="event-step">
+          <div class="event-dot"></div>
+          <div>
+            <div class="event-step-title">Registration</div>
+            <div class="event-step-date">November 2025 – May 2026</div>
           </div>
-          <div class="feature-card reveal reveal-delay-2">
-            <div class="feature-icon fi-green">✅</div>
-            <div>
-              <div class="feature-title">Certified & Recognised</div>
-              <div class="feature-desc">Earn credentials that employers and institutions trust — aligned with national priorities and industry demand.</div>
-            </div>
+        </div>
+        <div class="event-step">
+          <div class="event-dot"></div>
+          <div>
+            <div class="event-step-title">Completion of Self-paced Learning Modules</div>
+            <div class="event-step-date">Optional, but recommended to complete within two weeks after your ToT session</div>
           </div>
-          <div class="feature-card reveal reveal-delay-3">
-            <div class="feature-icon fi-blue">⚖️</div>
-            <div>
-              <div class="feature-title">Responsible by Design</div>
-              <div class="feature-desc">Governance, compliance, and human-in-the-loop frameworks built into every programme from day one.</div>
-            </div>
+        </div>
+        <div class="event-step">
+          <div class="event-dot"></div>
+          <div>
+            <div class="event-step-title">Classroom Implementation</div>
+            <div class="event-step-date">February 2026 – June 2026</div>
           </div>
-          <div class="feature-card reveal reveal-delay-4">
-            <div class="feature-icon fi-purple">🤝</div>
-            <div>
-              <div class="feature-title">Expert Malaysian Trainers</div>
-              <div class="feature-desc">Learn from practitioners who understand the Malaysian context — not imported frameworks.</div>
-            </div>
+        </div>
+        <div class="event-step">
+          <div class="event-dot"></div>
+          <div>
+            <div class="event-step-title">AI Teacher Convening</div>
+            <div class="event-step-date">June 2026</div>
           </div>
         </div>
       </div>
@@ -1068,41 +1460,7 @@ footer {
   </div>
 </section>
 
-<!-- HOW IT WORKS -->
-<section class="section" id="process">
-  <div class="container">
-    <div class="reveal" style="text-align:center;">
-      <div class="section-eyebrow">How It Works</div>
-      <h2 class="section-title">Your AI Journey in <span class="gradient-text">4 Simple Steps</span></h2>
-      <p class="section-sub" style="margin:0 auto;">A clear, guided pathway from discovery to certification — supported at every stage by the Pepper Labs team.</p>
-    </div>
-    <div class="process-steps">
-      <div class="process-step reveal reveal-delay-1">
-        <div class="step-num">1</div>
-        <div class="step-title">Discover</div>
-        <div class="step-desc">Explore programmes matched to your role, goals, and industry. Take our free AI readiness assessment.</div>
-      </div>
-      <div class="process-step reveal reveal-delay-2">
-        <div class="step-num">2</div>
-        <div class="step-title">Enroll</div>
-        <div class="step-desc">Choose your pathway — masterclass, upskilling track, or solutioning engagement. Flexible formats for every schedule.</div>
-      </div>
-      <div class="process-step reveal reveal-delay-3">
-        <div class="step-num">3</div>
-        <div class="step-title">Learn & Apply</div>
-        <div class="step-desc">Hands-on workshops, live AI labs, and real-world projects with certified Pepper Labs trainers.</div>
-      </div>
-      <div class="process-step reveal reveal-delay-4">
-        <div class="step-num">4</div>
-        <div class="step-title">Get Certified</div>
-        <div class="step-desc">Earn your credential and join a growing network of AI-ready professionals across Malaysia.</div>
-      </div>
-    </div>
-    <a href="#" id="howToEnrollBtn" class="btn-orange" style="margin-top:28px;display:inline-flex;margin-left: 42%;">How to Enroll →</a>
-  </div>
-</section>
-
-<!-- TOOLS -->
+<!-- TECH STACK (kept as-is) -->
 <section class="section section-alt" id="tools">
   <div class="container">
     <div class="reveal">
@@ -1110,22 +1468,17 @@ footer {
       <h2 class="section-title">AI Tools You'll <span class="gradient-text">Master</span></h2>
       <p class="section-sub">Train on the industry-leading platforms used by enterprises, governments, and innovators worldwide.</p>
     </div>
-
-    <!-- Filter Buttons -->
     <div class="tools-filter reveal reveal-delay-1">
       <button class="filter-btn active" data-filter="all">All</button>
       <button class="filter-btn" data-filter="llm">LLM</button>
       <button class="filter-btn" data-filter="agentic">Agentic AI</button>
     </div>
-
     <div class="tools-grid">
-      <!-- LLM -->
       <a href="https://pepperlabs.my/" style="text-decoration: none;" data-category="llm"><div class="tool-tile reveal reveal-delay-1"><div class="tool-tile-icon"><img src="https://1000logos.net/wp-content/uploads/2023/02/ChatGPT-Logo.png" alt="ChatGPT Icon" style="height: 50px;width: auto;display: block;"></div><div class="tool-tile-name">ChatGPT</div></div></a>
       <a href="https://pepperlabs.my/" style="text-decoration: none;" data-category="llm"><div class="tool-tile reveal reveal-delay-1"><div class="tool-tile-icon"><img src="https://images.seeklogo.com/logo-png/55/3/claude-logo-png_seeklogo-554534.png" alt="Claude AI Icon" style="height: 50px;width: auto;display: block"></div><div class="tool-tile-name">Claude AI</div></div></a>
       <a href="https://pepperlabs.my/" style="text-decoration: none;" data-category="llm"><div class="tool-tile reveal reveal-delay-2"><div class="tool-tile-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Google_Gemini_icon_2025.svg/3840px-Google_Gemini_icon_2025.svg.png" alt="Gemini Icon" style="height: 50px;width: auto;display: block"></div><div class="tool-tile-name">Gemini</div></div></a>
       <a href="https://pepperlabs.my/" style="text-decoration: none;" data-category="llm"><div class="tool-tile reveal reveal-delay-2"><div class="tool-tile-icon"><img src="https://1000logos.net/wp-content/uploads/2023/11/Copilot-Logo.png" alt="MS Copilot Icon" style="height: 50px;width: auto;display: block"></div><div class="tool-tile-name">MS Copilot</div></div></a>
       <a href="https://pepperlabs.my/" style="text-decoration: none;" data-category="llm"><div class="tool-tile reveal reveal-delay-3"><div class="tool-tile-icon"><img src="https://raw.githubusercontent.com/lobehub/lobe-icons/refs/heads/master/packages/static-png/dark/perplexity-color.png" alt="Perplexity Icon" style="height: 50px;width: auto;display: block"></div><div class="tool-tile-name">Perplexity</div></div></a>
-      <!-- Agentic AI -->
       <a href="https://pepperlabs.my/" style="text-decoration: none;" data-category="agentic"><div class="tool-tile reveal reveal-delay-3"><div class="tool-tile-icon"><img src="https://vectorseek.com/wp-content/uploads/2025/09/Google-flow-Logo-PNG-SVG-Vector-1.png" alt="Google Flow Icon" style="height: 50px;width: auto;display: block"></div><div class="tool-tile-name">Google Flow</div></div></a>
       <a href="https://pepperlabs.my/" style="text-decoration: none;" data-category="agentic"><div class="tool-tile reveal reveal-delay-1"><div class="tool-tile-icon"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLcbdb2C8CwMN5W1l0o8JbhCd6ymBOhFcDhQ&s" alt="Fireflies Icon" style="height: 50px;width: auto;display: block"></div><div class="tool-tile-name">Fireflies</div></div></a>
       <a href="https://pepperlabs.my/" style="text-decoration: none;" data-category="agentic"><div class="tool-tile reveal reveal-delay-1"><div class="tool-tile-icon"><img src="https://raw.githubusercontent.com/lobehub/lobe-icons/refs/heads/master/packages/static-png/light/manus.png" alt="Manus Icon" style="height: 50px;width: auto;display: block"></div><div class="tool-tile-name">Manus</div></div></a>
@@ -1134,91 +1487,157 @@ footer {
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
-<section class="section" id="testimonials">
+<!-- FAQ -->
+<section class="faq-section" id="faq">
   <div class="container">
-    <div class="reveal">
-      <div class="section-eyebrow">Success Stories</div>
-      <h2 class="section-title">What Our <span class="gradient-text">Community Says</span></h2>
+    <div class="reveal" style="text-align:center;">
+      <div class="section-eyebrow">Got Questions?</div>
+      <h2 class="section-title">Frequently Asked <span class="gradient-text">Questions</span></h2>
+      <p class="section-sub" style="margin:0 auto;">Everything you need to know about the programme.</p>
     </div>
-    <div class="testimonials-grid">
-      <div class="testimonial-card reveal reveal-delay-1">
-        <div class="stars">★★★★★</div>
-        <div class="testimonial-text">"The AI Masterclass completely shifted how our ministry approaches digital transformation. Pepper Labs made responsible AI practical — and the team genuinely understood the public sector context."</div>
-        <div class="testimonial-author">
-          <div class="author-avatar">AM</div>
-          <div><div class="author-name">Ahmad Marzuki</div><div class="author-role">Director, Ministry of Digital Malaysia</div></div>
+
+    <div class="faq-tabs reveal reveal-delay-1">
+      <button class="faq-tab active" data-tab="educators">Educators</button>
+      <button class="faq-tab" data-tab="students">Students</button>
+    </div>
+
+    <div class="faq-grid" id="faqGrid">
+      <!-- Educators FAQs -->
+      <div class="faq-item" data-group="educators">
+        <div class="faq-question">
+          <div class="faq-question-text">Which subjects can I integrate AI tools like Copilot into?</div>
+          <div class="faq-icon">▾</div>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">These tools are cross-curricular. You can use Copilot for lesson planning in any subject and use Reading, Math, and Speaker Progress to personalise assessment and feedback in literacy, numeracy, and public speaking across all relevant subjects.</div>
         </div>
       </div>
-      <div class="testimonial-card reveal reveal-delay-2">
-        <div class="stars">★★★★★</div>
-        <div class="testimonial-text">"As a fresh graduate, the AI Upskilling programme gave me real tools and a credential that employers recognise. I secured a junior data analyst role within six weeks of completing the course."</div>
-        <div class="testimonial-author">
-          <div class="author-avatar">SF</div>
-          <div><div class="author-name">Siti Farahana</div><div class="author-role">Junior Data Analyst, Fintech KL</div></div>
+
+      <div class="faq-item" data-group="educators">
+        <div class="faq-question">
+          <div class="faq-question-text">Do students need their own Microsoft accounts to use the Learning Accelerators?</div>
+          <div class="faq-icon">▾</div>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Students will need a Microsoft account, typically provided by the school. Your IT administrator can set up student accounts through Microsoft Education. Contact your school's IT department or reach out to us for guidance.</div>
         </div>
       </div>
-      <div class="testimonial-card reveal reveal-delay-3">
-        <div class="stars">★★★★★</div>
-        <div class="testimonial-text">"We partnered with Pepper Labs to build an AI solution for our HR department. Their problem-first approach meant we got something that actually works in production — not a shelf prototype."</div>
-        <div class="testimonial-author">
-          <div class="author-avatar">RK</div>
-          <div><div class="author-name">Raj Kumar</div><div class="author-role">CHRO, Malaysian Conglomerate</div></div>
+
+      <div class="faq-item" data-group="educators">
+        <div class="faq-question">
+          <div class="faq-question-text">How do I handle students without reliable internet access?</div>
+          <div class="faq-icon">▾</div>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Many AI tools offer offline or low-bandwidth modes. We also provide guidance on blended approaches that work even with limited connectivity. Reach out to your programme coordinator for location-specific support.</div>
         </div>
       </div>
-      <div class="testimonial-card reveal reveal-delay-4">
-        <div class="stars">★★★★★</div>
-        <div class="testimonial-text">"The facilitators genuinely understand Malaysia. They don't just import Silicon Valley frameworks — every module was contextualised to our regulatory environment and students' realities."</div>
-        <div class="testimonial-author">
-          <div class="author-avatar">LW</div>
-          <div><div class="author-name">Lim Wei Xin</div><div class="author-role">Associate Professor, Universiti Malaya</div></div>
+
+      <div class="faq-item" data-group="educators">
+        <div class="faq-question">
+          <div class="faq-question-text">Is there a standardised lesson plan or curriculum guide available?</div>
+          <div class="faq-icon">▾</div>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Yes. Participants receive a full set of ready-to-use lesson plan templates, curriculum alignment guides, and educator handbooks upon programme registration. These are updated regularly to reflect the latest tools.</div>
+        </div>
+      </div>
+
+      <div class="faq-item" data-group="educators">
+        <div class="faq-question">
+          <div class="faq-question-text">How can I access the online training modules again after my session?</div>
+          <div class="faq-icon">▾</div>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">All online learning modules remain accessible to registered participants via our learning portal. You can revisit any module at any time through your personal account dashboard.</div>
+        </div>
+      </div>
+
+      <div class="faq-item" data-group="educators">
+        <div class="faq-question">
+          <div class="faq-question-text">What is my role in the LEAPS Journey after training?</div>
+          <div class="faq-icon">▾</div>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">After your Training of Trainers (ToT) session, you are expected to implement AI-enhanced lessons in your classroom, submit activity logs, and guide your students through the LEAPS milestones during the classroom implementation phase.</div>
+        </div>
+      </div>
+
+      <!-- Students FAQs (hidden by default) -->
+      <div class="faq-item" data-group="students" style="display:none;">
+        <div class="faq-question">
+          <div class="faq-question-text">Am I eligible for the AI Training Hub programmes?</div>
+          <div class="faq-icon">▾</div>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Yes — the AI Training Hub is open to Malaysian students at all levels, from secondary school to university. Some programmes are also open to recent graduates entering the workforce. Check the specific programme page for eligibility details.</div>
+        </div>
+      </div>
+
+      <div class="faq-item" data-group="students" style="display:none;">
+        <div class="faq-question">
+          <div class="faq-question-text">Are the courses free for students?</div>
+          <div class="faq-icon">▾</div>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Some programmes are fully funded through our partners (AVPN, Google.org, Yayasan Peneraju). Others offer subsidised rates. Contact us directly to find out which funded options you qualify for.</div>
+        </div>
+      </div>
+
+      <div class="faq-item" data-group="students" style="display:none;">
+        <div class="faq-question">
+          <div class="faq-question-text">Will I receive a certificate upon completion?</div>
+          <div class="faq-icon">▾</div>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Yes. All participants who successfully complete their programme receive a Pepper Labs certificate. Certain tracks also carry HRD Corp claimable status or are recognised by partner universities and employers.</div>
+        </div>
+      </div>
+
+      <div class="faq-item" data-group="students" style="display:none;">
+        <div class="faq-question">
+          <div class="faq-question-text">What is the time commitment for the upskilling track?</div>
+          <div class="faq-icon">▾</div>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">The AI Upskilling Track runs for 4–8 weeks depending on the pathway. Sessions are typically scheduled on evenings or weekends to accommodate students with existing commitments. Self-paced options are also available.</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PARTNERS -->
-<section class="section section-alt" id="partners">
-  <div class="container" style="text-align:center;">
+<!-- FINAL CTA WITH VIDEO -->
+<section class="final-cta" id="register">
+  <div class="final-cta-inner">
     <div class="reveal">
-      <div class="section-eyebrow">Backed & Supported By</div>
-      <h2 class="section-title" style="max-width:500px;margin:0 auto 14px;">Trusted by Leading <span class="gradient-text">Institutions</span></h2>
-      <p class="section-sub" style="margin:0 auto;">Our programmes are supported by globally recognised organisations committed to impactful AI development in Malaysia and Asia Pacific.</p>
+      <div class="final-cta-eyebrow">Lead the Way in AI Education</div>
+      <h2 class="final-cta-title">Are You Ready to Make a Difference?</h2>
+      <p class="final-cta-sub">Discover how this initiative can impact your students, organisation, and community. Start now and be part of the change.</p>
+      <a href="#" class="final-cta-btn">Register Now →</a>
+      <div class="final-cta-links">
+        <a href="https://wa.link/hyc9tg" class="final-cta-link">💬 WhatsApp Us</a>
+        <a href="mailto:info@pepperlabs.my" class="final-cta-link">✉️ info@pepperlabs.my</a>
+        <a href="tel:+60165809532" class="final-cta-link">📞 (+60) 16-580 9532</a>
+      </div>
     </div>
-    <div class="partners-row reveal reveal-delay-1">
-      <div class="partner-chip">🌏 AVPN</div>
-      <div class="partner-chip">🌐 Google.org</div>
-      <div class="partner-chip">🏦 Asian Development Bank</div>
-      <div class="partner-chip">🎓 Yayasan Peneraju</div>
-      <div class="partner-chip">🏛️ Ministry of Digital Malaysia</div>
-      <div class="partner-chip">🔵 Microsoft Malaysia</div>
+    <div class="final-cta-video reveal reveal-delay-2">
+      <div class="video-wrap">
+        <iframe
+          src="https://www.youtube.com/embed/F-Y8ygI-htk"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div style="background:rgba(0,0,0,0.3);padding:12px 16px;border-top:1px solid rgba(255,255,255,0.1);">
+        <div style="font-size:12px;color:rgba(255,255,255,0.6);">Watch on YouTube</div>
+        <div style="font-size:13px;color:#fff;font-weight:600;margin-top:2px;">#AIForMYFuture: Microsoft empowers Malaysians with AI skills</div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
-<div class="cta-band" id="enroll">
-  <div class="cta-inner">
-    <div class="reveal">
-      <div class="cta-eyebrow">Get Started Today</div>
-      <h2 class="cta-title">Ready to Become<br>AI-Ready?</h2>
-      <p class="cta-sub">Join thousands of Malaysians building future-proof careers and organisations with Pepper Labs. Your first step is free.</p>
-      <div class="cta-form">
-        <input type="email" placeholder="Enter your work email...">
-        <button>Enroll Now →</button>
-      </div>
-      <p class="cta-note">No spam, ever. We'll get back to you within 1 business day.</p>
-      <div style="display:flex;gap:12px;justify-content:center;margin-top:24px;flex-wrap:wrap;">
-        <a href="https://wa.link/hyc9tg" style="display:inline-flex;align-items:center;gap:6px;padding:10px 18px;border:1px solid rgba(255,255,255,0.15);border-radius:6px;color:rgba(255,255,255,0.75);font-size:13px;font-weight:500;text-decoration:none;transition:border-color 0.2s;">💬 WhatsApp Us</a>
-        <a href="mailto:info@pepperlabs.my" style="display:inline-flex;align-items:center;gap:6px;padding:10px 18px;border:1px solid rgba(255,255,255,0.15);border-radius:6px;color:rgba(255,255,255,0.75);font-size:13px;font-weight:500;text-decoration:none;transition:border-color 0.2s;">✉️ info@pepperlabs.my</a>
-        <a href="tel:+60165809532" style="display:inline-flex;align-items:center;gap:6px;padding:10px 18px;border:1px solid rgba(255,255,255,0.15);border-radius:6px;color:rgba(255,255,255,0.75);font-size:13px;font-weight:500;text-decoration:none;transition:border-color 0.2s;">📞 (+60) 16-580 9532</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- FOOTER -->
+<!-- FOOTER (kept as-is) -->
 <footer>
   <div class="footer-inner">
     <div>
@@ -1229,7 +1648,6 @@ footer {
       <p style="margin-top:6px;font-size:14px;"><a href="mailto:info@pepperlabs.my" style="color:var(--text-500);text-decoration:none;">info@pepperlabs.my</a></p>
       <p style="margin-top:4px;font-size:14px;color:var(--text-500);">(+60) 16-350 4840</p>
     </div>
-
     <div>
       <div class="footer-col-title">Programs</div>
       <ul class="footer-col-links">
@@ -1240,7 +1658,6 @@ footer {
         <li><a href="#">Public Sector AI</a></li>
       </ul>
     </div>
-
     <div>
       <div class="footer-col-title">Company</div>
       <ul class="footer-col-links">
@@ -1251,7 +1668,6 @@ footer {
         <li><a href="#">Careers</a></li>
       </ul>
     </div>
-
     <div>
       <div class="footer-col-title">Contact</div>
       <ul class="footer-col-links">
@@ -1263,58 +1679,20 @@ footer {
       </ul>
     </div>
   </div>
-
   <div class="footer-bottom">
     <span>© 2025 Pepper Labs Sdn Bhd. All rights reserved.</span>
     <span>A-3-7, Viva Residency (Commercial), Off Jalan Ipoh, 51200 Kuala Lumpur, Malaysia</span>
   </div>
 </footer>
 
-<!-- VIDEO MODAL -->
-<div class="modal-overlay" id="enrollModal">
-  <div class="modal-box">
-    <button class="modal-close" id="modalClose">✕</button>
-    <div class="modal-video-wrap">
-      <iframe id="modalIframe"
-        src="https://youtu.be/F-Y8ygI-htk"
-        allow="autoplay; encrypted-media"
-        allowfullscreen>
-      </iframe>
-    </div>
-  </div>
-</div>
-
 <script>
-  // Video modal
-  const modal = document.getElementById('enrollModal');
-  const iframe = document.getElementById('modalIframe');
-  const VIDEO_URL = 'https://www.youtube.com/embed/F-Y8ygI-htk?autoplay=1';
-
-  document.getElementById('howToEnrollBtn').addEventListener('click', e => {
-    e.preventDefault();
-    iframe.src = VIDEO_URL;
-    modal.classList.add('open');
-  });
-
-  document.getElementById('modalClose').addEventListener('click', () => {
-    modal.classList.remove('open');
-    iframe.src = '';
-  });
-
-  modal.addEventListener('click', e => {
-    if (e.target === modal) {
-      modal.classList.remove('open');
-      iframe.src = '';
-    }
-  });
-
   // Scroll reveal
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  // Nav shadow
+  // Sticky nav shadow
   const nav = document.getElementById('main-nav');
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 40);
@@ -1342,8 +1720,8 @@ footer {
   }, { threshold: 0.5 });
   counters.forEach(c => cObserver.observe(c));
 
-  // Subtle card tilt
-  document.querySelectorAll('.program-card, .feature-card, .testimonial-card').forEach(card => {
+  // Tilt effect on cards
+  document.querySelectorAll('.program-card, .module-card').forEach(card => {
     card.addEventListener('mousemove', e => {
       const r = card.getBoundingClientRect();
       const x = (e.clientX - r.left) / r.width - 0.5;
@@ -1368,21 +1746,37 @@ footer {
   // Tools filter
   const filterBtns = document.querySelectorAll('.filter-btn');
   const toolLinks = document.querySelectorAll('.tools-grid a[data-category]');
-
   filterBtns.forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.stopPropagation();
       filterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-
       const filter = btn.dataset.filter;
       toolLinks.forEach(link => {
-        const category = link.dataset.category;
-        if (filter === 'all' || category === filter) {
-          link.style.display = '';
-        } else {
-          link.style.display = 'none';
-        }
+        link.style.display = (filter === 'all' || link.dataset.category === filter) ? '' : 'none';
+      });
+    });
+  });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-question').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  // FAQ tabs
+  document.querySelectorAll('.faq-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.faq-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const group = tab.dataset.tab;
+      document.querySelectorAll('.faq-item').forEach(item => {
+        item.style.display = item.dataset.group === group ? '' : 'none';
+        item.classList.remove('open');
       });
     });
   });
